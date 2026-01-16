@@ -1,212 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Platonic Ideal | The Index</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
-<style>
-    body { font-family: 'DM Sans', sans-serif; background-color: #FDFBF7; color: #1C1C1C; }
-    h1, h2, h3, h4, h5, h6, .serif { font-family: 'Playfair Display', serif; }
-    .fade-enter { opacity: 0; transform: translateY(10px); }
-    .fade-enter-active { opacity: 1; transform: translateY(0); transition: opacity 0.4s ease, transform 0.4s ease; }
-    .status-declared { color: #14532D; background-color: #DCFCE7; border-color: #14532D; }
-    .status-empty { color: #57534E; background-color: #E7E5E4; border-color: #57534E; }
-    .status-candidate { color: #B45309; background-color: #FEF3C7; border-color: #B45309; }
-    .status-deprecated { color: #7F1D1D; background-color: #FEE2E2; border-color: #7F1D1D; }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #F5F5F4; }
-    ::-webkit-scrollbar-thumb { background: #D6D3D1; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #A8A29E; }
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platonic Ideal | The Index</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+    <style>
+        body { font-family: 'DM Sans', sans-serif; background-color: #FDFBF7; color: #1C1C1C; }
+        h1, h2, h3, h4, h5, h6, .serif { font-family: 'Playfair Display', serif; }
+        .fade-enter { opacity: 0; transform: translateY(10px); }
+        .fade-enter-active { opacity: 1; transform: translateY(0); transition: opacity 0.4s ease, transform 0.4s ease; }
+        .status-declared { color: #14532D; background-color: #DCFCE7; border-color: #14532D; }
+        .status-empty { color: #57534E; background-color: #E7E5E4; border-color: #57534E; }
+        .status-candidate { color: #B45309; background-color: #FEF3C7; border-color: #B45309; }
+        .status-deprecated { color: #7F1D1D; background-color: #FEE2E2; border-color: #7F1D1D; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F5F5F4; }
+        ::-webkit-scrollbar-thumb { background: #D6D3D1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #A8A29E; }
+    </style>
+<!--
+    "/gen?prompt=Lodge+cast+iron+skillet+12+inch+studio+photography+white+background+top+down+view+minimalist+product+shot&aspect=1:1"
+    "/gen?prompt=Herman+Miller+Aeron+office+chair+black+mesh+studio+photography+white+background+side+profile+minimalist+product+shot&aspect=1:1"
+    "/gen?prompt=technical+blueprint+schematic+drawing+of+a+refrigerator+compressor+system+clean+lines+white+background+engineering+diagram&aspect=2:1"
+    "/gen?prompt=vintage+Pyrex+glass+measuring+cup+with+red+lettering+1+quart+studio+photography+white+background+product+shot&aspect=1:1"
+    "/gen?prompt=Rotring+600+mechanical+pencil+black+metal+studio+photography+white+background+macro+detail+product+shot&aspect=1:1"
+    "/gen?prompt=Wusthof+Classic+8+inch+chefs+knife+studio+photography+white+background+blade+profile+product+shot&aspect=1:1"
+    "/gen?prompt=pair+of+Red+Wing+Iron+Ranger+boots+amber+harness+leather+studio+photography+white+background+product+shot&aspect=1:1"
+    "/gen?prompt=Lodge+cast+iron+skillet+cooking+steak+detail+shot&aspect=4:3"
+    "/gen?prompt=Herman+Miller+Aeron+chair+mesh+detail+macro+shot&aspect=4:3"
+    "/gen?prompt=vintage+Pyrex+measuring+cup+broken+glass+detail&aspect=4:3"
+    -->
 </head>
 <body class="antialiased min-h-screen flex flex-col">
-<header class="border-b border-stone-200 bg-[#FDFBF7] sticky top-0 z-50">
-<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-<a class="flex items-center gap-2 group" href="#" onclick="router.navigate('home'); return false;">
-<span class="material-symbols-outlined text-stone-800 text-3xl group-hover:text-stone-600 transition-colors">balance</span>
-<span class="serif text-xl font-bold tracking-tight text-stone-900">Platonic Ideal</span>
-</a>
-<nav class="flex gap-8 text-sm font-medium tracking-wide uppercase text-stone-500">
-<a class="hover:text-stone-900 transition-colors" href="#" onclick="router.navigate('index'); return false;">The Index</a>
-<a class="hover:text-stone-900 transition-colors" href="#" onclick="router.navigate('about'); return false;">Methodology</a>
-</nav>
-</div>
-</header>
-<main class="flex-grow w-full max-w-7xl mx-auto px-6 py-12 fade-enter-active" id="app">
-</main>
-<footer class="border-t border-stone-200 py-12 mt-12 bg-[#FDFBF7]">
-<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-8">
-<div class="max-w-xs">
-<span class="serif font-bold text-stone-900 block mb-4">Platonic Ideal</span>
-<p class="text-stone-500 text-sm leading-relaxed">
-A non-commercial verdict system dedicated to finding the single most durable, repairable, and essential object in every category.
-</p>
-</div>
-<div class="text-xs text-stone-400 uppercase tracking-widest">Est. 2024 • No Affiliations • No Ads</div>
-</div>
-</footer>
-<script>
-    // DATA WITH PUBLIC STABLE IMAGES
-    const categories = [
-        {
-            id: 'frying-pan', name: 'Frying Pan', status: 'Declared', product: 'Lodge Cast Iron Skillet', manufacturer: 'Lodge Manufacturing', declaration: ' The only cookware that improves with use rather than degrading.', lastReviewed: 'Oct 14, 2025',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Lodge_skillet.jpg/800px-Lodge_skillet.jpg',
-            detailImages: ['https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Lodge_Cast_Iron_retail_display.jpg/640px-Lodge_Cast_Iron_retail_display.jpg'],
-            buyLink: 'https://www.lodgecastiron.com/product/round-cast-iron-classic-skillet',
-            content: { whyThis: "The Lodge cast iron skillet is the definition of the Lindy Effect: its life expectancy increases with every day of survival. Unlike multi-ply stainless steel (which can delaminate) or non-stick (which is disposable), a single piece of sand-cast iron has no failure points. Lodge, based in Tennessee since 1896, provides 99% of the performance of boutique brands at 10% of the cost. It is a vessel that converts maintenance into value.", whyNotOthers: "Carbon steel (De Buyer, Matfer) is excellent but susceptible to warping on high-heat induction and lacks the thermal mass of iron. Premium cast iron (Smithey, Finex) offers smoother factory finishes but provides no functional cooking advantage after the first month of use. Stainless steel (All-Clad) is essential for acidic sauces but lacks the non-stick polymerization potential for daily driving.", failureModes: "Cracking due to extreme thermal shock (e.g., plunging a hot pan into ice water). Rust if left wet (fully reversible).", evidence: "100+ year track record. Universal repairability via seasoning. Iron is an element, not a coating.", flags: "Heavy (3.5kg). Requires knowledge to maintain (cannot be dishwashed)." }
-        },
-        {
-            id: 'task-chair', name: 'Task Chair', status: 'Declared', product: 'Aeron Chair', manufacturer: 'Herman Miller', declaration: 'The suspension bridge of seating: engineered for repair, airflow, and 24-hour utility.', lastReviewed: 'Jan 02, 2026',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Aeron_chair_Brooklyn_Museum.jpg/800px-Aeron_chair_Brooklyn_Museum.jpg',
-            detailImages: ['https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Aeron_Chair.jpg/640px-Aeron_Chair.jpg'],
-            buyLink: 'https://www.hermanmiller.com/products/seating/office-chairs/aeron-chairs/',
-            content: { whyThis: "The Aeron (1994, remastered 2016) rejected foam—the primary failure point of all seating—in favor of a pellicle mesh suspension. It is built like a machine, not furniture. Every component is modular, bolted, and replaceable. There is a thriving secondary market for parts, ensuring that an Aeron frame can effectively live forever. It acknowledges that sitting is a dynamic activity, not a static pose.", whyNotOthers: "Steelcase Leap V2 is a worthy contender but relies on fabric and foam pads that degrade faster than mesh. Embody is too complex with too many squeak-points. Cheap ergonomic chairs use plywood bases and bonded leather that peels within 36 months.", failureModes: "Gas cylinder failure (replaceable). Mesh puncture (replaceable). Anterior foam pad degradation (replaceable).", evidence: "Ubiquitous in 24/7 control rooms. 12-year, 3-shift warranty includes parts and labor.", flags: "Polarizing aesthetic. The hard plastic rim can cause thigh numbness if the size (A, B, C) is incorrect." }
-        },
-        {
-            id: 'refrigerator', name: 'Domestic Refrigerator', status: 'Empty', product: null, manufacturer: null, declaration: 'No currently available product meets the requirements of this category.', lastReviewed: 'Nov 20, 2025',
-            // Using a data URI SVG for the schematic to ensure it works everywhere
-            image: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmNWY1ZjUiLz48ZyBzdHJva2U9IiNhOGEyOWUiIHN0cm9rZS13aWR0aD0iMS41IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiPjxyZWN0IHg9IjEwMCIgeT0iNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIi8+PGxpbmUgeDE9IjEwMCIgeTE9IjEwMCIgeDI9IjMwMCIgeTI9IjEwMCIvPjxwYXRoIGQ9Ik0gMTIwIDkwIEwgMTIwIDcwIE0gMTIwIDIyMCBMIDEyMCAxMzAiLz48Y2lyY2xlIGN4PSIyNjAiIGN5PSIyMjAiIHI9IjE1Ii8+PHBhdGggZD0iTSAyNDUgMjIwIEwgMjAwIDIyMCIvPjwvZz48L3N2Zz4=',
-            content: { formStatement: "A refrigerator should be an insulated box with a compressor, thermostat, and fan. It should last 25 years.", whyNothing: "The modern appliance market suffers from a 'smart' contagion. Manufacturers have integrated fragile control boards, Wi-Fi radios, and touchscreen interfaces into the sealed systems of cooling units. A logic board failure often renders the compressor useless due to proprietary software locks. The average lifespan has plummeted from 20+ years (1970s) to 7-10 years (2020s).", marketDisqualifiers: "Samsung/LG: Sealed systems often inaccessible for repair; control boards become unavailable after 5-7 years. Sub-Zero: Mechanically superior but prohibitively expensive and increasingly reliant on complex electronics.", failureModes: "Control board capacitor failure. Inverter compressor burnout. Icemaker jamming (the #1 service call).", whatChanges: "A return to analog thermostats, non-integrated standard control relays, and the removal of all internet connectivity." }
-        },
-        {
-            id: 'measuring-cup', name: 'Liquid Measuring Cup', status: 'Deprecated', product: 'Pyrex (Borosilicate)', manufacturer: 'Corning (Historical)', declaration: 'Revoked due to surreptitious material change from thermal-resistant glass to soda-lime.', revokedDate: '1998 (Approx)', lastReviewed: 'Dec 10, 2025',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Pyrex_1-quart_liquid_measuring_cup_-_DPLA_-_b07e5efc0a37cf693d74b366a3065c72.jpg/600px-Pyrex_1-quart_liquid_measuring_cup_-_DPLA_-_b07e5efc0a37cf693d74b366a3065c72.jpg',
-            content: { reason: "The original Pyrex (capitalized trademark) was made of borosilicate glass, chosen for its extreme thermal shock resistance. When the brand was sold to World Kitchen (now Corelle Brands) in 1998, US production switched to tempered soda-lime glass. Soda-lime is cheaper and mechanically stronger against drops, but significantly weaker against temperature changes.", impact: "Modern 'pyrex' (lowercase logo) can explode if placed on a cold granite countertop directly from a hot oven. The safety margin has been engineered out in favor of manufacturing cost.", whatNow: "We recommend sourcing vintage 'all-caps' PYREX from thrift stores, or purchasing laboratory-grade borosilicate glassware (beakers) for kitchen use.", detailImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Pyrex_graduated_cylinder.jpg/400px-Pyrex_graduated_cylinder.jpg' }
-        },
-        {
-            id: 'mechanical-pencil', name: 'Mechanical Pencil', status: 'Candidate', product: 'Rotring 600', manufacturer: 'Rotring', declaration: 'A precision tool currently under probationary review for fragility.', lastReviewed: 'Jan 12, 2026',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Rotring_600_mechanical_pencils.jpg/800px-Rotring_600_mechanical_pencils.jpg',
-            content: { whyCandidate: "The Rotring 600 is a design icon: full brass body, knurled grip, perfect weight. However, the fixed lead guidance sleeve is notoriously fragile. A single drop onto a hard floor bends the tip, rendering the pencil useless. We are currently debating if the '800' model's retractable tip solves this without introducing wobble, or if the fragility is an acceptable trade-off for the 600's writing precision.", flags: "Tip bending hazard. Heavy weight not for everyone.", alternativesReview: "Pentel GraphGear 1000 (Retractable but plastic internals). Staedtler 925-35 (Good balance, still fragile)." }
-        },
-        {
-            id: 'chefs-knife', name: 'Chef\'s Knife', status: 'Declared', product: 'Classic 8-Inch', manufacturer: 'Wüsthof', declaration: 'The median perfection of geometry, steel hardness, and serviceability.', lastReviewed: 'Aug 05, 2025',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Chef_knife_01.jpg/800px-Chef_knife_01.jpg',
-            content: { whyThis: "Forged from a single piece of high-carbon stainless steel (X50CrMoV15), the Wüsthof Classic hits the sweet spot of Rockwell hardness (58 HRC). Hard enough to hold an edge, soft enough to not chip on bone and to be sharpened by a home cook. The full tang and triple-riveted handle are virtually indestructible.", whyNotOthers: "Japanese knives (Shun, Miyabi) are often too hard/brittle for general abuse. French carbon steel (Sabatier) requires too much babying against rust.", failureModes: "Tip breakage if used as a pry bar. Handle rivets can theoretically loosen over decades.", evidence: "Standard issue in culinary schools for 50 years.", flags: "Bolster makes sharpening the entire heel difficult (unless you get the demi-bolster version)." }
-        },
-        {
-            id: 'boots', name: 'Service Boot', status: 'Declared', product: 'Iron Ranger', manufacturer: 'Red Wing', declaration: 'Goodyear welted architecture that outlives its soles.', lastReviewed: 'Sep 22, 2025',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Red_Wing_Iron_Rangers.jpg/640px-Red_Wing_Iron_Rangers.jpg',
-            content: { whyThis: "Built on the No. 8 last using oil-tanned leather from their own tannery (S.B. Foot). The Goodyear welt construction means the sole can be replaced indefinitely by any cobbler. There are no liners to rot; the leather conforms to the foot. It is a boot that starts uncomfortable and becomes part of your anatomy.", whyNotOthers: "Blundstones (cemented construction, throwaway). Viberg (diminishing returns on price). Sneakers (planned obsolescence).", failureModes: "Stitching can rot if leather is not conditioned. Soles wear out (expected).", evidence: "Standard workwear for iron miners in the 1930s.", flags: "Brutal break-in period (2-4 weeks). No shock absorption." }
-        }
-    ];
-    const router = {
-        navigate: (view, params = {}) => { window.location.hash = view + (params.id ? '/' + params.id : ''); app.render(view, params); window.scrollTo(0, 0); },
-        init: () => { const handleHash = () => { const hash = window.location.hash.slice(1) || 'home'; const [view, id] = hash.split('/'); app.render(view, { id }); }; window.addEventListener('hashchange', handleHash); handleHash(); }
-    };
-    const app = {
-        container: document.getElementById('app'),
-        getCounts: () => { const counts = { Declared: 0, Empty: 0, Candidate: 0, Deprecated: 0 }; categories.forEach(c => counts[c.status]++); return counts; },
-        render: (view, params) => {
-            app.container.classList.remove('fade-enter-active'); app.container.classList.add('fade-enter');
-            setTimeout(() => {
-                app.container.innerHTML = '';
-                if (view === 'home') app.renderHome(); else if (view === 'index') app.renderIndex(); else if (view === 'category' && params.id) app.renderCategory(params.id); else if (view === 'about') app.renderAbout(); else app.renderHome();
-                void app.container.offsetWidth; app.container.classList.remove('fade-enter'); app.container.classList.add('fade-enter-active');
-            }, 50);
-        },
-        renderHome: () => {
-            const counts = app.getCounts();
-            const html = `
-                <div class="space-y-16">
-                    <div class="max-w-3xl"><h1 class="text-4xl md:text-5xl font-serif font-bold text-stone-900 leading-tight mb-6">An index that names the one product in each category built to last — or leaves the category empty.</h1><p class="text-xl text-stone-500 font-medium font-serif italic">One ideal. No alternatives. No rankings.</p></div>
-                    <div class="flex flex-wrap gap-px bg-stone-200 border border-stone-200 rounded-sm overflow-hidden">
-                        ${Object.entries(counts).map(([status, count]) => `<div class="flex-1 bg-white p-4 flex flex-col items-center justify-center min-w-[120px]"><span class="text-2xl font-bold font-serif ${status === 'Declared' ? 'text-[#14532D]' : status === 'Empty' ? 'text-[#57534E]' : status === 'Candidate' ? 'text-[#B45309]' : 'text-[#7F1D1D]' }">${count}</span><span class="text-xs uppercase tracking-widest text-stone-500 mt-1">${status}</span></div>`).join('')}
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">${categories.map(cat => app.components.categoryCard(cat)).join('')}</div>
-                </div>
-            `; app.container.innerHTML = html;
-        },
-        renderIndex: () => {
-            const html = `
-                <div class="space-y-8"><div class="flex items-baseline justify-between border-b border-stone-300 pb-4"><h2 class="text-3xl font-serif font-bold text-stone-900">The Ledger</h2><span class="text-sm text-stone-500">Last updated: Jan 14, 2026</span></div>
-                    <div class="overflow-x-auto"><table class="w-full text-left border-collapse"><thead><tr class="text-xs uppercase tracking-widest text-stone-500 border-b border-stone-200"><th class="pb-4 font-normal">Category</th><th class="pb-4 font-normal">Status</th><th class="pb-4 font-normal">Verdict</th><th class="pb-4 font-normal text-right">Last Reviewed</th></tr></thead><tbody class="text-sm">${categories.map(cat => `<tr class="group border-b border-stone-100 hover:bg-stone-100 transition-colors cursor-pointer" onclick="router.navigate('category', {id: '${cat.id}'})"><td class="py-4 pr-4 font-medium text-stone-900 group-hover:underline decoration-stone-400 underline-offset-4">${cat.name}</td><td class="py-4 pr-4">${app.components.statusBadge(cat.status)}</td><td class="py-4 pr-4 text-stone-600 font-serif italic">${cat.product || '—'}</td><td class="py-4 text-right text-stone-400 font-mono text-xs">${cat.lastReviewed}</td></tr>`).join('')}</tbody></table></div>
-                </div>
-            `; app.container.innerHTML = html;
-        },
-        renderCategory: (id) => {
-            const cat = categories.find(c => c.id === id);
-            if (!cat) { app.renderIndex(); return; }
-            if (cat.status === 'Empty') { app.renderEmptyCategory(cat); return; }
-            if (cat.status === 'Deprecated') { app.renderDeprecatedCategory(cat); return; }
-            const html = `
-                <div class="max-w-4xl mx-auto space-y-12">
-                    <div class="space-y-4 text-center"><div class="flex justify-center mb-6">${app.components.statusBadge(cat.status, true)}</div><h2 class="text-xs uppercase tracking-[0.2em] text-stone-500">${cat.name}</h2><h1 class="text-4xl md:text-5xl font-serif font-bold text-stone-900">${cat.product}</h1><p class="text-lg text-stone-600 font-serif italic max-w-2xl mx-auto">${cat.manufacturer} &mdash; ${cat.declaration}</p></div>
-                    <div class="w-full aspect-square md:aspect-[16/9] bg-white border border-stone-200 p-8 md:p-12 flex items-center justify-center"><img src="${cat.image}" alt="${cat.product}" class="max-h-full max-w-full object-contain drop-shadow-sm"></div>
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
-                        <div class="md:col-span-7 space-y-10">
-                            ${cat.content.whyThis ? `<section><h3 class="text-sm font-bold uppercase tracking-widest text-stone-400 mb-3">Why This</h3><p class="text-lg leading-relaxed text-stone-800 font-serif">${cat.content.whyThis}</p></section>` : ''}
-                            ${cat.content.whyNotOthers ? `<section><h3 class="text-sm font-bold uppercase tracking-widest text-stone-400 mb-3">Why Not Others</h3><p class="text-base leading-relaxed text-stone-600">${cat.content.whyNotOthers}</p></section>` : ''}
-                            ${cat.content.evidence ? `<section><h3 class="text-sm font-bold uppercase tracking-widest text-stone-400 mb-3">Evidence</h3><p class="text-base leading-relaxed text-stone-600">${cat.content.evidence}</p></section>` : ''}
-                            ${cat.content.alternativesReview ? `<section><h3 class="text-sm font-bold uppercase tracking-widest text-stone-400 mb-3">Alternatives Reviewed</h3><p class="text-base leading-relaxed text-stone-600">${cat.content.alternativesReview}</p></section>` : ''}
-                        </div>
-                        <div class="md:col-span-5 space-y-8">
-                            <div class="bg-stone-100 p-6 rounded-sm border border-stone-200"><h3 class="text-xs font-bold uppercase tracking-widest text-stone-500 mb-4">Failure Modes</h3><p class="text-sm text-stone-700 leading-relaxed">${cat.content.failureModes || cat.content.flags}</p></div>
-                            ${cat.content.flags && cat.status !== 'Candidate' ? `<div class="p-6 border-l-4 border-amber-200 bg-amber-50"><h3 class="text-xs font-bold uppercase tracking-widest text-amber-800 mb-2">Caveats</h3><p class="text-sm text-amber-900 leading-relaxed">${cat.content.flags}</p></div>` : ''}
-                            <div class="pt-8 border-t border-stone-200"><div class="flex justify-between items-center text-xs text-stone-400 uppercase tracking-widest mb-4"><span>Last Reviewed</span><span>${cat.lastReviewed}</span></div>${cat.buyLink ? `<a href="${cat.buyLink}" target="_blank" class="inline-flex items-center gap-2 text-stone-900 border-b border-stone-900 pb-0.5 hover:text-stone-600 hover:border-stone-400 transition-colors text-sm font-medium">Where to acquire <span class="material-symbols-outlined text-[16px]">open_in_new</span></a>` : ''}</div>
-                        </div>
-                    </div>
-                    ${cat.detailImages ? `<div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-8">${cat.detailImages.map(img => `<div class="bg-white border border-stone-200 aspect-[4/3] flex items-center justify-center p-4"><img src="${img}" alt="Detail" class="w-full h-full object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500"></div>`).join('')}</div>` : ''}
-                </div>
-            `; app.container.innerHTML = html;
-        },
-        renderEmptyCategory: (cat) => {
-            const html = `
-                <div class="max-w-4xl mx-auto space-y-12">
-                    <div class="space-y-4 text-center"><div class="flex justify-center mb-6">${app.components.statusBadge(cat.status, true)}</div><h2 class="text-xs uppercase tracking-[0.2em] text-stone-500">${cat.name}</h2><h1 class="text-3xl md:text-4xl font-serif font-bold text-stone-400 max-w-2xl mx-auto leading-tight">"${cat.declaration}"</h1></div>
-                    <div class="w-full aspect-[2/1] bg-[#F5F5F4] border border-stone-200 p-8 flex items-center justify-center relative overflow-hidden"><img src="${cat.image}" alt="Schematic" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply"><div class="absolute inset-0 bg-stone-100 mix-blend-color z-10"></div></div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-stone-700">
-                        <section><h3 class="text-sm font-bold uppercase tracking-widest text-stone-400 mb-3">Form Statement</h3><p class="text-lg font-serif leading-relaxed text-stone-900 border-l-2 border-stone-300 pl-4">${cat.content.formStatement}</p></section>
-                        <section><h3 class="text-sm font-bold uppercase tracking-widest text-stone-400 mb-3">Why Nothing Qualifies</h3><p class="text-base leading-relaxed">${cat.content.whyNothing}</p></section>
-                        <section><h3 class="text-sm font-bold uppercase tracking-widest text-stone-400 mb-3">Market Disqualifiers</h3><p class="text-base leading-relaxed">${cat.content.marketDisqualifiers}</p></section>
-                        <section><h3 class="text-sm font-bold uppercase tracking-widest text-stone-400 mb-3">Failure Modes</h3><p class="text-base leading-relaxed">${cat.content.failureModes}</p></section>
-                    </div>
-                    <div class="bg-white border border-stone-200 p-8 text-center max-w-2xl mx-auto mt-12"><h3 class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-3">What Would Change This</h3><p class="text-stone-800 font-serif italic">${cat.content.whatChanges}</p></div>
-                </div>
-            `; app.container.innerHTML = html;
-        },
-        renderDeprecatedCategory: (cat) => {
-            const html = `
-                <div class="max-w-4xl mx-auto space-y-12">
-                    <div class="space-y-4 text-center opacity-70"><div class="flex justify-center mb-6">${app.components.statusBadge(cat.status, true)}</div><h2 class="text-xs uppercase tracking-[0.2em] text-stone-500">${cat.name}</h2><h1 class="text-4xl md:text-5xl font-serif font-bold text-stone-500 line-through decoration-red-900/30">${cat.product}</h1><p class="text-lg text-stone-500 font-serif italic max-w-2xl mx-auto">${cat.declaration}</p></div>
-                    <div class="w-full aspect-[16/9] bg-stone-100 border border-stone-200 p-8 flex items-center justify-center relative overflow-hidden grayscale"><img src="${cat.image}" alt="${cat.product}" class="max-h-full opacity-50 mix-blend-multiply"></div>
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
-                            <div class="md:col-span-8 space-y-10"><section><h3 class="text-sm font-bold uppercase tracking-widest text-red-900/50 mb-3">Reason for Revocation</h3><p class="text-lg leading-relaxed text-stone-700 font-serif">${cat.content.reason}</p></section><section><h3 class="text-sm font-bold uppercase tracking-widest text-stone-400 mb-3">Impact</h3><p class="text-base leading-relaxed text-stone-600">${cat.content.impact}</p></section></div>
-                            <div class="md:col-span-4 space-y-6"><div class="bg-red-50 p-6 rounded-sm border border-red-100"><h3 class="text-xs font-bold uppercase tracking-widest text-red-800 mb-2">Revoked Date</h3><p class="text-xl font-serif text-red-900">${cat.revokedDate}</p></div><div class="bg-stone-100 p-6 rounded-sm border border-stone-200"><h3 class="text-xs font-bold uppercase tracking-widest text-stone-500 mb-2">Recommendation</h3><p class="text-sm text-stone-600">${cat.content.whatNow}</p></div></div>
-                    </div>
-                </div>
-            `; app.container.innerHTML = html;
-        },
-        renderAbout: () => {
-            const html = `
-                <div class="max-w-3xl mx-auto space-y-16">
-                    <section class="text-center space-y-6"><h1 class="text-4xl font-serif font-bold text-stone-900">Methodology</h1><p class="text-xl text-stone-600 font-serif italic">Clarity, authority, and restraint.</p></section>
-                    <div class="prose prose-stone prose-lg mx-auto"><h3>What This Is</h3><p>Platonic Ideal is an index that attempts to identify the single "correct" object in a given category. It is based on the belief that in many categories of industrial design, a local maximum was reached decades ago, and subsequent "innovation" has been a regression in durability and repairability.</p><h3>What We Refuse To Do</h3><ul class="list-disc pl-5 space-y-2 marker:text-stone-400"><li>We do not accept payments, samples, or affiliate commissions.</li><li>We do not rank "top 10" lists. There is only one ideal, or there is none.</li><li>We do not value "smart" features. Software makes hardware obsolete.</li></ul><h3>Category States</h3><div class="grid grid-cols-1 gap-6 not-prose mt-8">${['Declared','Empty','Candidate','Deprecated'].map(s => `<div class="flex items-start gap-4"><div class="mt-1">${app.components.statusBadge(s)}</div><div><h4 class="font-bold text-stone-900 text-sm">${s}</h4><p class="text-sm text-stone-600">${s==='Declared'?'A verdict has been reached. The object is durable, repairable, and essential.':s==='Empty'?'The market has failed to produce an object that meets the standard.':s==='Candidate'?'An object is under probationary review. It has promise but carries caveats.':'A formerly Declared object has been revoked due to manufacturing changes.'}</p></div></div>`).join('')}</div></div>
-                </div>
-            `; app.container.innerHTML = html;
-        },
-        components: {
-            statusBadge: (status, large = false) => {
-                const classes = { 'Declared': 'status-declared', 'Empty': 'status-empty', 'Candidate': 'status-candidate', 'Deprecated': 'status-deprecated' };
-                const cls = classes[status] || 'bg-gray-100 text-gray-800 border-gray-200';
-                const size = large ? 'px-3 py-1 text-xs' : 'px-2 py-0.5 text-[10px]';
-                return `<span class="inline-block border rounded-sm font-bold uppercase tracking-wider ${cls} ${size}">${status}</span>`;
+    <!-- App Header -->
+    <header class="border-b border-stone-200 bg-[#FDFBF7] sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" onclick="router.navigate('home'); return false;" class="flex items-center gap-2 group">
+                <span class="material-symbols-outlined text-stone-800 text-3xl group-hover:text-stone-600 transition-colors">balance</span>
+                <span class="serif text-xl font-bold tracking-tight text-stone-900">Platonic Ideal</span>
+            </a>
+            <nav class="flex gap-8 text-sm font-medium tracking-wide uppercase text-stone-500">
+                <a href="#" onclick="router.navigate('index'); return false;" class="hover:text-stone-900 transition-colors">The Index</a>
+                <a href="#" onclick="router.navigate('about'); return false;" class="hover:text-stone-900 transition-colors">Methodology</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main View Container -->
+    <main id="app" class="flex-grow w-full max-w-7xl mx-auto px-6 py-12 fade-enter-active"></main>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 py-12 mt-12 bg-[#FDFBF7]">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-8">
+            <div class="max-w-xs">
+                <span class="serif font-bold text-stone-900 block mb-4">Platonic Ideal</span>
+                <p class="text-stone-500 text-sm leading-relaxed">
+                    A non-commercial verdict system dedicated to finding the single most durable, repairable, and essential object in every category.
+                </p>
+            </div>
+            <div class="text-xs text-stone-400 uppercase tracking-widest">Est. 2024 • No Affiliations • No Ads</div>
+        </div>
+    </footer>
+
+    <!-- App Logic -->
+    <script>
+        // --- DATA STORE ---
+        const categories = [
+            {
+                id: 'frying-pan', name: 'Frying Pan', status: 'Declared', product: 'Lodge Cast Iron Skillet', manufacturer: 'Lodge Manufacturing', declaration: 'The only cookware that improves with use rather than degrading.', lastReviewed: 'Oct 14, 2025',
+                image: '/gen?prompt=Lodge+cast+iron+skillet+12+inch+studio+photography+white+background+top+down+view+minimalist+product+shot&aspect=1:1',
+                detailImages: ['/gen?prompt=Lodge+cast+iron+skillet+cooking+steak+detail+shot&aspect=4:3'],
+                buyLink: 'https://www.lodgecastiron.com/product/round-cast-iron-classic-skillet',
+                content: { whyThis: "The Lodge cast iron skillet is the definition of the Lindy Effect: its life expectancy increases with every day of survival. Unlike multi-ply stainless steel (which can delaminate) or non-stick (which is disposable), a single piece of sand-cast iron has no failure points. Lodge, based in Tennessee since 1896, provides 99% of the performance of boutique brands at 10% of the cost.", failureModes: "Cracking due to thermal shock. Rust if left wet.", evidence: "100+ year track record. Universal repairability." }
             },
-            categoryCard: (cat) => {
-                let imgHtml = '';
-                if (cat.status === 'Empty') { imgHtml = `<div class="w-full h-full flex items-center justify-center bg-stone-100 text-stone-400 p-8"><span class="font-serif italic text-center text-sm">Category Empty</span></div>`; }
-                else if (cat.status === 'Deprecated') { imgHtml = `<div class="w-full h-full relative grayscale opacity-75"><img src="${cat.image}" class="w-full h-full object-cover mix-blend-multiply" alt="${cat.product}"><div class="absolute inset-0 bg-red-900/10"></div></div>`; }
-                else { imgHtml = `<div class="w-full h-full p-8 flex items-center justify-center bg-white transition-transform duration-500 group-hover:scale-105"><img src="${cat.image}" class="max-w-full max-h-full object-contain drop-shadow-sm" alt="${cat.product}"></div>`; }
-                const accentClass = { 'Declared': 'group-hover:border-[#14532D]', 'Empty': 'group-hover:border-stone-400', 'Candidate': 'group-hover:border-[#B45309]', 'Deprecated': 'group-hover:border-[#7F1D1D]' }[cat.status];
-                return `<a href="#" onclick="router.navigate('category', {id: '${cat.id}'}); return false;" class="block group border border-stone-200 bg-white hover:shadow-lg transition-all duration-300 ${accentClass}"><div class="aspect-square w-full border-b border-stone-100 overflow-hidden relative">${imgHtml}<div class="absolute top-4 left-4">${app.components.statusBadge(cat.status)}</div></div><div class="p-6"><h3 class="text-xs uppercase tracking-[0.15em] text-stone-500 mb-2">${cat.name}</h3><div class="font-serif font-bold text-lg text-stone-900 leading-tight">${cat.product || '<span class="italic text-stone-400">Null</span>'}</div><div class="mt-2 text-xs text-stone-400 font-mono">${cat.manufacturer || '—'}</div></div></a>`;
+            {
+                id: 'task-chair', name: 'Task Chair', status: 'Declared', product: 'Aeron Chair', manufacturer: 'Herman Miller', declaration: 'The suspension bridge of seating.', lastReviewed: 'Jan 02, 2026',
+                image: '/gen?prompt=Herman+Miller+Aeron+office+chair+black+mesh+studio+photography+white+background+side+profile+minimalist+product+shot&aspect=1:1',
+                detailImages: ['/gen?prompt=Herman+Miller+Aeron+chair+mesh+detail+macro+shot&aspect=4:3'],
+                buyLink: 'https://www.hermanmiller.com/products/seating/office-chairs/aeron-chairs/',
+                content: { whyThis: "The Aeron rejected foam in favor of a pellicle mesh suspension. It is built like a machine, not furniture. Every component is modular, bolted, and replaceable. There is a thriving secondary market for parts, ensuring that an Aeron frame can effectively live forever.", failureModes: "Gas cylinder failure (replaceable). Mesh puncture.", flags: "Polarizing aesthetic. Hard plastic rim." }
+            },
+            {
+                id: 'refrigerator', name: 'Domestic Refrigerator', status: 'Empty', product: null, manufacturer: null, declaration: 'No currently available product meets the requirements.', lastReviewed: 'Nov 20, 2025',
+                image: '/gen?prompt=technical+blueprint+schematic+drawing+of+a+refrigerator+compressor+system+clean+lines+white+background+engineering+diagram&aspect=2:1',
+                content: { formStatement: "A refrigerator should be an insulated box with a compressor and thermostat. It should last 25 years.", whyNothing: "The modern market suffers from 'smart' contagion. Logic board failures render compressors useless.", whatChanges: "A return to analog thermostats and standard relays." }
+            },
+            {
+                id: 'measuring-cup', name: 'Liquid Measuring Cup', status: 'Deprecated', product: 'Pyrex (Borosilicate)', manufacturer: 'Corning (Historical)', declaration: 'Revoked due to material change to soda-lime glass.', revokedDate: '1998', lastReviewed: 'Dec 10, 2025',
+                image: '/gen?prompt=vintage+Pyrex+glass+measuring+cup+with+red+lettering+1+quart+studio+photography+white+background+product+shot&aspect=1:1',
+                detailImages: ['/gen?prompt=vintage+Pyrex+measuring+cup+broken+glass+detail&aspect=4:3'],
+                content: { reason: "Original Pyrex was borosilicate (heat resistant). Modern 'pyrex' is soda-lime (stronger against drops, weaker against heat).", impact: "Can explode if placed on cold surfaces when hot.", whatNow: "Buy vintage 'ALL CAPS' Pyrex or laboratory beakers." }
+            },
+            {
+                id: 'mechanical-pencil', name: 'Mechanical Pencil', status: 'Candidate', product: 'Rotring 600', manufacturer: 'Rotring', declaration: 'Precision tool under review for fragility.', lastReviewed: 'Jan 12, 2026',
+                image: '/gen?prompt=Rotring+600+mechanical+pencil+black+metal+studio+photography+white+background+macro+detail+product+shot&aspect=1:1',
+                content: { whyCandidate: "Full brass body, perfect weight. But the fixed tip bends easily if dropped.", flags: "Tip bending hazard. Heavy.", alternativesReview: "Pentel GraphGear 1000 (Plastic internals). Staedtler 925-35." }
+            },
+            {
+                id: 'chefs-knife', name: 'Chef\'s Knife', status: 'Declared', product: 'Classic 8-Inch', manufacturer: 'Wüsthof', declaration: 'Median perfection of geometry and hardness.', lastReviewed: 'Aug 05, 2025',
+                image: '/gen?prompt=Wusthof+Classic+8+inch+chefs+knife+studio+photography+white+background+blade+profile+product+shot&aspect=1:1',
+                content: { whyThis: "Forged single piece high-carbon steel. Hard enough to hold an edge (58 HRC), soft enough not to chip.", failureModes: "Tip breakage if used as pry bar.", evidence: "Standard culinary school issue for 50 years." }
+            },
+            {
+                id: 'boots', name: 'Service Boot', status: 'Declared', product: 'Iron Ranger', manufacturer: 'Red Wing', declaration: 'Goodyear welted architecture.', lastReviewed: 'Sep 22, 2025',
+                image: '/gen?prompt=pair+of+Red+Wing+Iron+Ranger+boots+amber+harness+leather+studio+photography+white+background+product+shot&aspect=1:1',
+                content: { whyThis: "Oil-tanned leather, cork midsole, Goodyear welt. Can be resoled indefinitely.", failureModes: "Stitching rot if neglected.", flags: "Brutal break-in period." }
             }
-        }
-    };
-    document.addEventListener('DOMContentLoaded', () => { router.init(); });
-</script>
+        ];
+
+        // --- ROUTER ---
+        const router = {
+            navigate: (view, params = {}) => { window.location.hash = view + (params.id ? '/' + params.id : ''); app.render(view, params); window.scrollTo(0, 0); },
+            init: () => { 
+                const handleHash = () => { const hash = window.location.hash.slice(1) || 'home'; const [view, id] = hash.split('/'); app.render(view, { id }); };
+                window.addEventListener('hashchange', handleHash); handleHash(); 
+            }
+        };
+
+        // --- RENDERER ---
+        const app = {
+            container: document.getElementById('app'),
+            getCounts: () => { const c = { Declared:0, Empty:0, Candidate:0, Deprecated:0 }; categories.forEach(x => c[x.status]++); return c; },
+            
+            render: (view, params) => {
+                app.container.innerHTML = '';
+                if(view === 'home') app.renderHome();
+                else if(view === 'index') app.renderIndex();
+                else if(view === 'category' && params.id) app.renderCategory(params.id);
+                else if(view === 'about') app.renderAbout();
+                else app.renderHome();
+            },
+
+            components: {
+                badge: (s) => {
+                    const c = { 'Declared':'bg-[#DCFCE7] text-[#14532D] border-[#14532D]', 'Empty':'bg-[#E7E5E4] text-[#57534E] border-[#57534E]', 'Candidate':'bg-[#FEF3C7] text-[#B45309] border-[#B45309]', 'Deprecated':'bg-[#FEE2E2] text-[#7F1D1D] border-[#7F1D1D]' }[s];
+                    return `<span class="inline-block border rounded-sm px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${c}">${s}</span>`;
+                },
+                card: (cat) => {
+                    let img = cat.status === 'Empty' ? 
+                        `<div class="w-full h-full flex items-center justify-center bg-stone-100 p-8"><img src="${cat.image}" class="w-full h-full object-cover mix-blend-multiply opacity-50"></div>` :
+                        `<div class="w-full h-full p-8 flex items-center justify-center bg-white"><img src="${cat.image}" class="max-w-full max-h-full object-contain ${cat.status === 'Deprecated' ? 'grayscale opacity-50' : ''}" alt="${cat.product}"></div>`;
+                    
+                    return `
+                    <a href="#" onclick="router.navigate('category', {id: '${cat.id}'}); return false;" class="block group border border-stone-200 bg-white hover:shadow-lg transition-all duration-300">
+                        <div class="aspect-square border-b border-stone-100 relative">${img}<div class="absolute top-4 left-4">${app.components.badge(cat.status)}</div></div>
+                        <div class="p-6">
+                            <h3 class="text-xs uppercase tracking-widest text-stone-500 mb-2">${cat.name}</h3>
+                            <div class="font-serif font-bold text-lg text-stone-900">${cat.product || '<span class="italic text-stone-400">Null</span>'}</div>
+                            <div class="mt-1 text-xs text-stone-400">${cat.manufacturer || '—'}</div>
+                        </div>
+                    </a>`;
+                }
+            },
+
+            renderHome: () => {
+                const counts = app.getCounts();
+                app.container.innerHTML = `
+                <div class="space-y-12">
+                    <div class="max-w-3xl">
+                        <h1 class="text-4xl md:text-5xl font-serif font-bold text-stone-900 mb-4">An index that names the one product in each category built to last.</h1>
+                        <p class="text-xl text-stone-500 font-serif italic">One ideal. No alternatives. No rankings.</p>
+                    </div>
+                    <div class="flex border border-stone-200 bg-stone-100 rounded-sm overflow-hidden">
+                        ${Object.entries(counts).map(([k,v]) => `<div class="flex-1 p-4 text-center bg-white border-r last:border-0 border-stone-200"><div class="text-2xl font-bold font-serif text-stone-800">${v}</div><div class="text-[10px] uppercase tracking-widest text-stone-500">${k}</div></div>`).join('')}
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">${categories.map(c => app.components.card(c)).join('')}</div>
+                </div>`;
+            },
+
+            renderIndex: () => {
+                app.container.innerHTML = `
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-serif font-bold">The Ledger</h2>
+                    <table class="w-full text-left border-collapse">
+                        <thead><tr class="text-xs uppercase tracking-widest text-stone-500 border-b border-stone-200"><th class="pb-4 font-normal">Category</th><th class="pb-4 font-normal">Status</th><th class="pb-4 font-normal">Verdict</th></tr></thead>
+                        <tbody>${categories.map(c => `<tr class="border-b border-stone-100 hover:bg-stone-50 cursor-pointer" onclick="router.navigate('category', {id:'${c.id}'})"><td class="py-4 font-medium">${c.name}</td><td class="py-4">${app.components.badge(c.status)}</td><td class="py-4 font-serif italic text-stone-600">${c.product || '—'}</td></tr>`).join('')}</tbody>
+                    </table>
+                </div>`;
+            },
+
+            renderCategory: (id) => {
+                const c = categories.find(x => x.id === id);
+                if(!c) return app.renderIndex();
+                
+                // Detailed Image View
+                let imgHTML = c.status === 'Empty' ? 
+                    `<div class="w-full h-full flex items-center justify-center bg-stone-100"><img src="${c.image}" class="w-full h-full object-cover mix-blend-multiply opacity-50"></div>` :
+                    `<img src="${c.image}" class="max-h-full max-w-full object-contain ${c.status==='Deprecated'?'grayscale opacity-50':''}">`;
+
+                let detailsHTML = c.detailImages ? 
+                    `<div class="grid grid-cols-2 gap-4 pt-8">${c.detailImages.map(d => `<div class="aspect-square bg-white border border-stone-200 p-2"><img src="${d}" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all"></div>`).join('')}</div>` : '';
+
+                app.container.innerHTML = `
+                <div class="max-w-4xl mx-auto space-y-12">
+                    <div class="text-center space-y-4">
+                        <div class="flex justify-center">${app.components.badge(c.status)}</div>
+                        <h2 class="text-xs uppercase tracking-widest text-stone-500">${c.name}</h2>
+                        <h1 class="text-4xl font-serif font-bold text-stone-900">${c.product || c.declaration}</h1>
+                        ${c.manufacturer ? `<p class="text-lg text-stone-600 font-serif italic">${c.manufacturer} &mdash; ${c.declaration}</p>` : ''}
+                    </div>
+                    <div class="aspect-video bg-white border border-stone-200 p-8 flex items-center justify-center">${imgHTML}</div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div class="space-y-8">
+                            ${c.content.whyThis ? `<section><h3 class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">Why This</h3><p class="font-serif text-lg">${c.content.whyThis}</p></section>` : ''}
+                            ${c.content.formStatement ? `<section><h3 class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">Form Statement</h3><p class="font-serif text-lg">${c.content.formStatement}</p></section>` : ''}
+                            ${c.content.whyNotOthers ? `<section><h3 class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">Why Not Others</h3><p class="text-stone-600">${c.content.whyNotOthers}</p></section>` : ''}
+                        </div>
+                        <div class="space-y-6 text-sm text-stone-600">
+                             <div class="bg-stone-50 p-6 border border-stone-200 rounded-sm">
+                                <h3 class="text-xs font-bold uppercase tracking-widest text-stone-500 mb-2">Analysis</h3>
+                                <p class="mb-2"><strong>Failure Modes:</strong> ${c.content.failureModes || 'N/A'}</p>
+                                ${c.content.flags ? `<p class="text-amber-700"><strong>Caveats:</strong> ${c.content.flags}</p>`:''}
+                                ${c.content.whatChanges ? `<p class="mt-2 italic">"${c.content.whatChanges}"</p>`:''}
+                             </div>
+                             ${c.buyLink ? `<a href="${c.buyLink}" target="_blank" class="inline-block border-b border-stone-900 text-stone-900 pb-0.5">Where to Acquire &nearr;</a>` : ''}
+                        </div>
+                    </div>
+                    ${detailsHTML}
+                </div>`;
+            },
+            
+            renderAbout: () => {
+                app.container.innerHTML = `
+                <div class="max-w-2xl mx-auto space-y-8">
+                    <h1 class="text-4xl font-serif font-bold">Methodology</h1>
+                    <p class="text-xl font-serif italic text-stone-600">Clarity, authority, and restraint.</p>
+                    <div class="prose prose-stone">
+                        <p>Platonic Ideal is an index that attempts to identify the single "correct" object in a given category. It is based on the belief that in many categories of industrial design, a local maximum was reached decades ago.</p>
+                        <h3>States</h3>
+                        <ul class="list-disc pl-5">
+                            <li><strong>Declared:</strong> A verdict has been reached.</li>
+                            <li><strong>Empty:</strong> No product meets the standard.</li>
+                            <li><strong>Candidate:</strong> Under probationary review.</li>
+                            <li><strong>Deprecated:</strong> Formerly declared, now revoked.</li>
+                        </ul>
+                    </div>
+                </div>`;
+            }
+        };
+
+        // Start
+        document.addEventListener('DOMContentLoaded', router.init);
+    </script>
 </body>
 </html>
